@@ -19,6 +19,10 @@ app.post('/', function (req, res) {
   const lname = req.body.lname;
   const email = req.body.email;
 
+  const address = req.body.address;
+  const password = req.body.password;
+  const birthday = req.body.birthday;
+
   const data = {
     members: [
       {
@@ -27,13 +31,16 @@ app.post('/', function (req, res) {
         merge_fields: {
           FNAME: fname,
           LNAME: lname,
+          ADDRESS: address,
+          PHONE: password,
+          BIRTHDAY: birthday,
         },
       },
     ],
   };
 
   const jsonData = JSON.stringify(data);
-
+  
   const url = 'https://us5.api.mailchimp.com/3.0/lists/08d7d8fd9f';
 
   const options = {
